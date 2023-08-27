@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -18,9 +19,19 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public User get() {
-        User user = new User();
-        user.setId(2);
+    public User save(User user) {
         return userRepository.save(user);
+    }
+
+    public Optional<User> getUserById(int id) {
+        return userRepository.findById(id);
+    }
+
+    public Optional<User> getUserByNameAndPassword(String name, String password) {
+        return userRepository.findByNameAndPassword(name, password);
+    }
+
+    public Optional<User> getUserByName(String name) {
+        return userRepository.findByName(name);
     }
 }
