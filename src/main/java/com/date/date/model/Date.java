@@ -1,5 +1,6 @@
 package com.date.date.model;
 
+import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,4 +18,5 @@ public class Date {
     private String title;
     private String description;
     private int price;
+    private int owner;
 }

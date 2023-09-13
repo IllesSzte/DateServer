@@ -33,4 +33,13 @@ public class DateService {
                 .price(date.getPrice())
                 .build();
     }
+
+    public Date saveDate(DateDTO dateDto, int userId) {
+        Date dateEntity = new Date();
+        dateEntity.setTitle(dateDto.getTitle());
+        dateEntity.setDescription(dateDto.getDescription());
+        dateEntity.setPrice(dateDto.getPrice());
+        dateEntity.setOwner(userId);
+        return dateRepository.save(dateEntity);
+    }
 }

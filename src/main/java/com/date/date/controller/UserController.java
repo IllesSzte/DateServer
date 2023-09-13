@@ -30,7 +30,12 @@ public class UserController {
     }
 
     @GetMapping(path = "/get-by-name-and-password")
-    public Optional<User> getUserByName(@RequestParam String name, String password) {
+    public Optional<User> getUserByNameAndPassword(@RequestParam String name, @RequestParam String password) {
         return userService.getUserByNameAndPassword(name, password);
+    }
+
+    @GetMapping(path = "/get-by-name")
+    public Optional<User> getUserByNameAndPassword(@RequestParam String name) {
+        return userService.getUserByName(name);
     }
 }

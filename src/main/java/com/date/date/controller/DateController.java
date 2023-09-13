@@ -5,9 +5,7 @@ import com.date.date.model.Date;
 import com.date.date.repository.DateRepository;
 import com.date.date.service.DateService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -16,8 +14,15 @@ import java.util.List;
 public class DateController {
     @Autowired
     DateService dateService;
+
     @GetMapping(path = "/get-all")
-    private List<DateDTO> getAllDates(){
+    private List<DateDTO> getAllDates() {
         return dateService.getAllDates();
     }
+
+    @PostMapping(path = "/create")
+    private Date save(@RequestBody DateDTO dateDto, @RequestParam int userId) {
+        return dateService.saveDate(dateDto, userId);
+    }
+
 }
