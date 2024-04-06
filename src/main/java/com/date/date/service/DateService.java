@@ -5,6 +5,7 @@ import com.date.date.model.Date;
 import com.date.date.repository.DateRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -40,6 +41,15 @@ public class DateService {
         dateEntity.setDescription(dateDto.getDescription());
         dateEntity.setPrice(dateDto.getPrice());
         dateEntity.setOwner(userId);
+        dateEntity.setPlace(dateDto.getPlace());
+        dateEntity.setCrowded(dateDto.getCrowded());
+        dateEntity.setActivity(dateDto.getActivity());
+        dateEntity.setSeason(dateDto.getSeason());
+        dateEntity.setDuration(dateDto.getDuration());
+        dateEntity.setDaytime(dateDto.getDaytime());
         return dateRepository.save(dateEntity);
+    }
+    public List<Date> searchDates(int price_in, String place_in, String crowded_in, String activity_in, String season_in, String duration_in, String daytime_in) {
+            return dateRepository.searchDates(price_in, place_in, crowded_in, activity_in, season_in, duration_in, daytime_in);
     }
 }

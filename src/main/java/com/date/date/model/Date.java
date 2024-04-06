@@ -16,7 +16,14 @@ public class Date {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String title;
-    private String description;
-    private int price;
-    private int owner;
+    private String description = title;
+    private int price = 0;
+    private int owner = 0;
+    private String place = "Anywhere";
+    private String crowded = "Medium";
+    private String activity = "Usual";
+    private String season = "Anytime";
+    private String duration = "Half day";
+    private String daytime = "Anytime";
 }
+ 

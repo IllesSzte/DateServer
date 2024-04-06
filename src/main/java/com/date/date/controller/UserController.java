@@ -1,5 +1,6 @@
 package com.date.date.controller;
 
+import com.date.date.exceptions.UserExceptions;
 import com.date.date.model.User;
 import com.date.date.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,7 @@ public class UserController {
     }
 
     @GetMapping(path = "/get-user-by-id")
-    public Optional<User> getUser(@RequestParam int id) {
+    public User getUser(@RequestParam int id) throws UserExceptions {
         return userService.getUserById(id);
     }
 

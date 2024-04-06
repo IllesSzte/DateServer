@@ -24,5 +24,15 @@ public class DateController {
     private Date save(@RequestBody DateDTO dateDto, @RequestParam int userId) {
         return dateService.saveDate(dateDto, userId);
     }
+    @GetMapping(path ="/get-filtered-dates")
+    public List<Date> getFillteredDates( @RequestParam int price_in,
+                                          @RequestParam String place_in,
+                                          @RequestParam String crowded_in,
+                                          @RequestParam String activity_in,
+                                          @RequestParam String season_in,
+                                          @RequestParam String duration_in,
+                                          @RequestParam String daytime_in){
+        return dateService.searchDates(price_in,place_in,crowded_in,activity_in,season_in,duration_in,daytime_in);
+    }
 
 }
