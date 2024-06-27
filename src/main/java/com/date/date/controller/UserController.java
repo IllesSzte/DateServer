@@ -39,4 +39,9 @@ public class UserController {
     public Optional<User> getUserByNameAndPassword(@RequestParam String name) {
         return userService.getUserByName(name);
     }
+
+    @DeleteMapping(path = "/delete-user")
+    private void delete(@RequestParam int userId) {
+         userService.deleteUser(userId);
+    }
 }

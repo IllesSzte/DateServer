@@ -25,7 +25,7 @@ public class RequestService {
         User user2=userService.getUserById(requested);
 
         if(userService.getUserById(requester) !=null &&
-        userService.getUserById(requested) != null){
+        userService.getUserById(requested) != null) {
             return  requestRepository.save( new Request(requester, requested));
         }
         throw new UserExceptions(USER_NOT_FOUND);

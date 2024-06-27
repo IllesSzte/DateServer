@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 @Data
 @NoArgsConstructor
 public class DateDTO {
+    int id;
     private String title;
     private String description;
     private int price;

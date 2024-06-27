@@ -46,8 +46,11 @@ public class UserService {
         }
         throw new UserExceptions(USER_HAS_NO_PARTNER);
     }
-    private boolean hasPartner(User user){
+    public boolean hasPartner(User user){
         return user.getPartnerId()!=0;
     }
 
+    public void deleteUser(int userId){
+        userRepository.deleteById(userId);
+    }
 }

@@ -19,11 +19,11 @@ public class Date {
     private String description = title;
     private int price = 0;
     private int owner = 0;
-    private String place = "Anywhere";
-    private String crowded = "Medium";
-    private String activity = "Usual";
-    private String season = "Anytime";
-    private String duration = "Half day";
-    private String daytime = "Anytime";
+    private String place = "Does not matter";
+    private String crowded = "Does not matter";
+    private String activity = "Does not matter";
+    private String season = "Does not matter";
+    private String duration = "Does not matter";
+    private String daytime = "Does not matter";
 }
  
