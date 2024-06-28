@@ -11,10 +11,11 @@ import org.springframework.stereotype.Service;
 @Data
 @NoArgsConstructor
 public class DateDTO {
-    int id;
+    private int id;
     private String title;
     private String description;
     private int price;
+    private int owner;
     private String place;
     private String crowded;
     private String activity;

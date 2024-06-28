@@ -13,46 +13,47 @@ import java.util.List;
 @RequestMapping(path = "/date")
 public class DateController {
     @Autowired
+    
     DateService dateService;
 
     @GetMapping(path = "/get-all")
-    private List<DateDTO> getAllDates() {
+    public List<DateDTO> getAllDates() {
         return dateService.getAllDates();
     }
 
     @GetMapping(path = "/get-user-dates")
-    private List<DateDTO> getUserDates(@RequestParam int userId) {
+    public List<DateDTO> getUserDates(@RequestParam int userId) {
         return dateService.getUserDates(userId);
     }
 
     @GetMapping(path = "/get-user-and-partner-dates")
-    private List<DateDTO> getUserAndPartnerDates(@RequestParam int userId) {
+    public List<DateDTO> getUserAndPartnerDates(@RequestParam int userId) {
         return dateService.getUserAndPartnerDates(userId);
     }
 
     @PostMapping(path = "/create")
-    private Date save(@RequestBody DateDTO dateDto, @RequestParam int userId) {
+    public Date save(@RequestBody DateDTO dateDto, @RequestParam int userId) {
         return dateService.saveDate(dateDto, userId);
     }
 
     @DeleteMapping(path = "/delete-date")
-    private void delete(@RequestParam int dateId) {
+    public void delete(@RequestParam int dateId) {
         dateService.deleteDate(dateId);
     }
 
     @GetMapping(path = "/get-filtered-dates")
-    public List<Date> getFillteredDates(@RequestParam Integer user_in,
-                                        @RequestParam(required = false) Integer price_in,
-                                        @RequestParam(required = false) String place_in,
-                                        @RequestParam(required = false) String crowded_in,
-                                        @RequestParam(required = false) String activity_in,
-                                        @RequestParam(required = false) String season_in,
-                                        @RequestParam(required = false) String duration_in,
-                                        @RequestParam(required = false) String daytime_in) {
-        return dateService.searchDates(user_in, price_in, place_in, crowded_in, activity_in, season_in, duration_in, daytime_in);
+    public List<Date> getFillteredDates(@RequestParam Integer userIn,
+                                        @RequestParam(required = false) Integer priceIn,
+                                        @RequestParam(required = false) String placeIn,
+                                        @RequestParam(required = false) String crowdedIn,
+                                        @RequestParam(required = false) String activityIn,
+                                        @RequestParam(required = false) String seasonIn,
+                                        @RequestParam(required = false) String durationIn,
+                                        @RequestParam(required = false) String daytimeIn) {
+        return dateService.searchDates(userIn, priceIn, placeIn, crowdedIn, activityIn, seasonIn, durationIn, daytimeIn);
     }
     @PutMapping(path = "/modify-date")
-    public DateDTO modifyDate(@RequestBody DateDTO dateDTO,@PathVariable Long id){
+    public DateDTO modifyDate(@RequestBody DateDTO dateDTO,@RequestParam int id){
       return dateService.modifyDate(dateDTO,id);
     }
 }

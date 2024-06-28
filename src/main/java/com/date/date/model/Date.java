@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
 @Data
@@ -25,5 +26,12 @@ public class Date {
     private String season = "Does not matter";
     private String duration = "Does not matter";
     private String daytime = "Does not matter";
+    @Override
+    public String toString() {
+        return "Date [id=" + id + ", title=" + title + ", description=" + description + ", price=" + price + ", owner="
+                + owner + ", place=" + place + ", crowded=" + crowded + ", activity=" + activity + ", season=" + season
+                + ", duration=" + duration + ", daytime=" + daytime + "]";
+    }
+    
 }
  
