@@ -74,11 +74,19 @@ public class DateService {
         return dateRepository.save(dateEntity);
     }
 
-    public List<Date> searchDates(Integer userId, Integer price_in, String place_in, String crowded_in,
+    public List<Date> searchDates(Integer user_in, Integer price_in, String place_in, String crowded_in,
             String activity_in, String season_in, String duration_in, String daytime_in) {
-        Integer partnerId = userRepository.findUserById(userId).getPartnerId();
-        return dateRepository.searchDates(userId, partnerId, price_in, place_in, crowded_in, activity_in, season_in,
-                duration_in, daytime_in);
+        Integer partner_in = userRepository.findUserById(user_in).getPartnerId();
+        return dateRepository.searchDates(
+                user_in,
+                partner_in,
+                price_in,
+                place_in,
+                crowded_in,
+                activity_in,
+                season_in,
+                duration_in,
+                daytime_in);
     }
 
     public void deleteDate(int dateId) {

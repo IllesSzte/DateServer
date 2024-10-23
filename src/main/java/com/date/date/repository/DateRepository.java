@@ -20,7 +20,7 @@ public interface DateRepository extends JpaRepository<Date, Integer> {
      * @param daytime_in
      * @return
      */
-    @Query(value = "CALL SEARCH_DATE(:owner_in,:partner_in,:price_in, :place_in, :crowded_in, :activity_in, :season_in, :duration_in, :daytime_in)",
+    @Query(value = "CALL search_dates(:owner_in,:partner_in,:price_in, :place_in, :crowded_in, :activity_in, :season_in, :duration_in, :daytime_in)",
             nativeQuery = true)
     List<Date> searchDates(@Param("owner_in") Integer owner_in,
                            @Param("partner_in") Integer partner_in,
